@@ -21,11 +21,13 @@ jobs:
       - aws-ecr/ecr-login  
 
 workflows:
-  test:
+  test-build-deploy:
     jobs:
       - test
-  deploy:
-    jobs:
-      - login-aws
+      - login-aws:
+          requires:
+          - test
       - aws-ecr/build-and-push-image:
           repo: jseguros
+          requires:
+            - login-aws
