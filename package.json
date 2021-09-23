@@ -5,7 +5,8 @@
   "author": "teste",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+	"test": "echo Fake test"
   },
   "dependencies": {
     "express": "^4.16.1"
