@@ -1,7 +1,7 @@
 const http = require('http')
 var os = require("os");
 const hostname = os.hostname();
-/*const hostname = request.headers.host*/
+
 const port = 3000
 
 const server = http.createServer((req, res) => {
