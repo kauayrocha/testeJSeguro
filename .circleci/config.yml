@@ -4,11 +4,16 @@ version: 2.1
 orbs:
   node: circleci/node@4.1
 
+jobs:
+  example-job:
+    docker:
+      # replace with your preferred image
+      - image: cimg/base:stable
+    steps:
+      - node/install
 workflows:
   checkout:
     jobs:
+      - example-job
       - node/test:
           version: '15.1'
-          # This is the node version to use for the `cimg/node` tag
-          # Relevant tags can be found on the CircleCI Developer Hub
-          # https://circleci.com/developer/images/image/cimg/node
