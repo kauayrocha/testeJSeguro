@@ -14,20 +14,11 @@ jobs:
           command: |
             npm test
 
-  login-aws:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - aws-ecr/ecr-login  
-
 workflows:
   test-build-deploy:
     jobs:
       - test
-      - login-aws:
-          requires:
-          - test
       - aws-ecr/build-and-push-image:
           repo: jseguros
           requires:
-            - login-aws
+            - test
