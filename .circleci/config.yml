@@ -6,7 +6,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: The First Step
+          name: Npm Test
           command: |
             npm test
 
