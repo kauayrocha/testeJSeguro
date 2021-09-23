@@ -1,9 +1,16 @@
 version: 2.1
 jobs:
-  build:
+  test:
     docker:
       - image: alpine:3.7
     steps:
       - checkout
+      - run:
+          name: The First Step
+          command: |
+            npm test
 
-    
+workflows:
+  test:
+    jobs:
+      - test
