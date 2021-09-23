@@ -20,5 +20,6 @@ workflows:
       - test
       - aws-ecr/build-and-push-image:
           repo: jseguros
+		  tag: '1.0.pipeline.number' 
           requires:
             - test
