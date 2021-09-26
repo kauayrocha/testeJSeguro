@@ -30,3 +30,13 @@ workflows:
           family: junto-task-defination
           requires:
             - aws-ecr/build-and-push-image
+      - aws-ecs/deploy-service-update:
+          deployment-controller: ECS 
+          container-image-name-updates: container=node-juntoseguros,image-and-tag=235447615561.dkr.ecr.us-east-1.amazonaws.com/juntoseguros:1.0.<< pipeline.number >> 
+          cluster-name: ecs-juntoseguros 
+          family: junto-task-defination 
+          force-new-deployment: true 
+          max-poll-attempts: 1 
+          service-name: node-juntoseguro
+          requires:
+            - aws-ecs/update-task-definition
