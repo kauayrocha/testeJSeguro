@@ -1,0 +1,21 @@
+
+[
+    {
+       "name": "node-juntoseguros",
+       "image": "235447615561.dkr.ecr.us-east-1.amazonaws.com/juntoseguros:__containerDefinitions.image__",
+        "cpu": 10,
+        "memoryReservation": 384,
+        "portMappings": [
+            {
+                "containerPort": 3000,
+                "hostPort": 8080,
+                "protocol": "tcp"
+            }
+        ],
+        "essential": true,
+        "entryPoint": [],
+        "environment": [],
+        "mountPoints": [],
+        "volumesFrom": []
+    }
+  ]
