@@ -15,6 +15,7 @@ resource "aws_subnet" "pub_subnet" {
     vpc_id                  = aws_vpc.vpc-terraform.id
     cidr_block              = "10.0.1.0/24"
     availability_zone       = data.aws_availability_zones.available.names[0]
+    map_public_ip_on_launch = true
 
     tags = {
         Name = "TerraformSubnet"
@@ -62,7 +63,7 @@ resource "aws_security_group" "ecs_sg" {
     egress {
         from_port       = 0
         to_port         = 0
-        protocol        = "tcp"
+        protocol        = "all"
         cidr_blocks     = ["0.0.0.0/0"]
     }
 }

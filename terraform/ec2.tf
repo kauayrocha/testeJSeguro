@@ -7,11 +7,15 @@ resource "aws_instance" "ec2_instance" {
   key_name               = "testejseguros" 
   ebs_optimized          = "false"
   source_dest_check      = "false"
-  user_data              = "#!/bin/bash\necho ECS_CLUSTER=ECSJSeguros >> /etc/ecs/ecs.config"
+  user_data              = "#!/bin/bash\necho ECS_CLUSTER=ECSJSeguros >> /etc/ecs/ecs.config && sudo yum update -y && sudo start docker.service"
+  monitoring             = false
   root_block_device      {
     volume_type           = "gp2"
     volume_size           = "30"
     delete_on_termination = "true"
+  }
+  capacity_reservation_specification    {
+    capacity_reservation_preference = "none"
   }
 
   tags = {
