@@ -33,7 +33,7 @@ workflows:
       - aws-ecs/deploy-service-update:
           deployment-controller: ECS 
           container-image-name-updates: container=node-juntoseguros,image-and-tag=235447615561.dkr.ecr.us-east-1.amazonaws.com/juntoseguros:1.0.<< pipeline.number >> 
-          cluster-name: ecs-juntoseguros 
+          cluster-name: ECSJSeguros  
           family: junto-task-defination 
           force-new-deployment: true 
           max-poll-attempts: 1 
