@@ -25,7 +25,7 @@ workflows:
           requires:
             - test
       - aws-ecs/update-task-definition:
-          container-image-name-updates: container=235447615561.dkr.ecr.us-east-1.amazonaws.com,image-and-tag=juntoseguros:1.0.<< pipeline.number >> 
+          container-image-name-updates: container=juntoseguros,tag=1.0.<< pipeline.number >> 
           family: junto-task-defination
           requires:
             - aws-ecr/build-and-push-image
