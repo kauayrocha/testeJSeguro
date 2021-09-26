@@ -19,7 +19,7 @@ workflows:
     jobs:
       - test
       - aws-ecr/build-and-push-image:
-          repo: jseguros
+          repo: juntoseguros
           tag: '1.0.<< pipeline.number >>'
           requires:
             - test
