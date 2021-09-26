@@ -20,13 +20,13 @@ workflows:
     jobs:
       - test
       - aws-ecr/build-and-push-image:
-          repo: {AWS_ECR_REPOSITORY_IMAGE}
+          repo: '{AWS_ECR_REPOSITORY_IMAGE}'
           tag: '1.0.<< pipeline.number >>'
           requires:
             - test
       - aws-ecs/deploy-service-update:
           deployment-controller: ECS 
-          container-image-name-updates: container=node-juntoseguros,image-and-tag={AWS_ECR_ACCOUNT_URL}/{AWS_ECR_REPOSITORY_IMAGE}:1.0.<< pipeline.number >> 
+          container-image-name-updates: 'container=node-juntoseguros,image-and-tag={AWS_ECR_ACCOUNT_URL}/{AWS_ECR_REPOSITORY_IMAGE}:1.0.<< pipeline.number >>'
           cluster-name: ECSJSeguros  
           family: junto-task-defination 
           force-new-deployment: true 
