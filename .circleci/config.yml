@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   aws-ecr: circleci/aws-ecr@7.2.0
+  aws-ecs: circleci/aws-ecs@2.2.1
   
 jobs:
   test:
@@ -23,3 +24,8 @@ workflows:
           tag: '1.0.<< pipeline.number >>'
           requires:
             - test
+      - aws-ecs/update-task-definition:
+          container-image-name-updates: '235447615561.dkr.ecr.us-east-1.amazonaws.com/juntoseguros:1.0.<< pipeline.number >>' 
+          family: junto-task-defination
+          requires:
+            - aws-ecr/build-and-push-image
