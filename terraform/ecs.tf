@@ -12,8 +12,7 @@ resource "aws_ecs_task_definition" "tsk-node-juntoseguros" {
   container_definitions    = data.template_file.task_definition_json.rendered                                                                                                          
   family                   = "junto-task-defination"
   network_mode             = "bridge"
-  memory                   = "2048"
-  cpu                      = "1024"
+  memory                   = "500"
   requires_compatibilities = ["EC2"]                                                                                                                                                                                                                                                                                                
 } 
 
