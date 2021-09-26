@@ -37,10 +37,15 @@ resource "aws_route_table" "public" {
         cidr_block = "0.0.0.0/0"
         gateway_id = aws_internet_gateway.internet_gateway.id
     }
+    
 }
 resource "aws_route_table_association" "route_table_association" {
     subnet_id      = aws_subnet.pub_subnet.id
     route_table_id = aws_route_table.public.id
+
+    depends_on = [
+        aws_subnet.pub_subnet
+    ]
 }
 
 resource "aws_security_group" "ecs_sg" {
