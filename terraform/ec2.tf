@@ -4,7 +4,7 @@ resource "aws_instance" "ec2_instance" {
   instance_type          = "t2.micro"
   iam_instance_profile   = "ecs-agent" 
   vpc_security_group_ids = [aws_security_group.ecs_sg.id] 
-  key_name               = "testejseguros" 
+  key_name               = var.key_name["key1"]
   ebs_optimized          = "false"
   source_dest_check      = "false"
   user_data              = "#!/bin/bash\necho ECS_CLUSTER=ECSJSeguros >> /etc/ecs/ecs.config && sudo yum update -y && sudo start docker.service"

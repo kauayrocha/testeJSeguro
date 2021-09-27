@@ -1,3 +1,6 @@
+
+#------ EC2 ---------
+
 variable "ami" {
     type = map
 
@@ -6,6 +9,18 @@ variable "ami" {
     }
   
 }
+
+variable "key_name" {
+    type = map
+    default = {
+        "key1" = "testejseguros"
+        "key2" = "teste2"
+    }
+  
+}
+
+
+# ----- ECS-------------
 variable "RepositoryECR" {
     type    = string
     default = "juntoseguros"
