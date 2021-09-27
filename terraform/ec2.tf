@@ -1,5 +1,5 @@
 resource "aws_instance" "ec2_instance" {
-  ami                    = "ami-0706a79e169de19a2"
+  ami                    = var.ami["us-east-1"]
   subnet_id              =  aws_subnet.pub_subnet.id
   instance_type          = "t2.micro"
   iam_instance_profile   = "ecs-agent" 

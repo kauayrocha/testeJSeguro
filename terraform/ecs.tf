@@ -1,5 +1,5 @@
 resource "aws_ecs_cluster" "ecs-juntoseguros" {
-  name = "ECSJSeguros"
+  name = var.ECSClusterName["ClusterECSJunto-01"]
 
   setting {
     name  = "containerInsights"
@@ -13,6 +13,7 @@ resource "aws_ecs_task_definition" "tsk-node-juntoseguros" {
   family                   = "junto-task-defination"
   network_mode             = "bridge"
   memory                   = "500"
+  cpu                      = "500"
   requires_compatibilities = ["EC2"]                                                                                                                                                                                                                                                                                                
 } 
 
